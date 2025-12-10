@@ -43,8 +43,44 @@
   </div>
 
   <script>
+    const TRANSITION_MS = 400; // must match CSS transition (0.4s)
+
+    // Fade IN on load
     window.addEventListener("load", () => {
       document.body.classList.add("loaded");
+    });
+
+    // Fade OUT on internal navigation
+    document.addEventListener("DOMContentLoaded", () => {
+      const links = document.querySelectorAll("a[href]");
+
+      links.forEach((link) => {
+        const href = link.getAttribute("href");
+        const target = link.getAttribute("target");
+
+        // Skip:
+        // - empty href
+        // - anchors (#...)
+        // - new tab links
+        // - external domains
+        if (
+          !href ||
+          href.startsWith("#") ||
+          target === "_blank" ||
+          (href.startsWith("http") && !href.startsWith(window.location.origin))
+        ) {
+          return;
+        }
+
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          document.body.classList.add("fade-out");
+
+          setTimeout(() => {
+            window.location.href = href;
+          }, TRANSITION_MS);
+        });
+      });
     });
   </script>
 </body>
