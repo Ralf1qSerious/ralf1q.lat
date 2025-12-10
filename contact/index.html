@@ -74,8 +74,37 @@
   </div>
 
   <script>
+    const TRANSITION_MS = 400;
+
     window.addEventListener("load", () => {
       document.body.classList.add("loaded");
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const links = document.querySelectorAll("a[href]");
+
+      links.forEach((link) => {
+        const href = link.getAttribute("href");
+        const target = link.getAttribute("target");
+
+        if (
+          !href ||
+          href.startsWith("#") ||
+          target === "_blank" ||
+          (href.startsWith("http") && !href.startsWith(window.location.origin))
+        ) {
+          return;
+        }
+
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          document.body.classList.add("fade-out");
+
+          setTimeout(() => {
+            window.location.href = href;
+          }, TRANSITION_MS);
+        });
+      });
     });
   </script>
 </body>
