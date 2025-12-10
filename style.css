@@ -1,4 +1,6 @@
-/* RESET & GLOBAL */
+/* ===========================
+   RESET & GLOBAL
+   =========================== */
 * {
   margin: 0;
   padding: 0;
@@ -9,11 +11,13 @@ body {
   font-family: "Poppins", sans-serif;
   color: white;
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
   background: #000;
 }
 
-/* BACKGROUND */
+/* ===========================
+   BACKGROUND
+   =========================== */
 .background {
   position: fixed;
   inset: 0;
@@ -28,7 +32,9 @@ body {
   z-index: 1;
 }
 
-/* PAGE LAYOUT */
+/* ===========================
+   PAGE LAYOUT
+   =========================== */
 .page {
   position: relative;
   z-index: 2;
@@ -39,7 +45,9 @@ body {
   padding: 25px 60px;
 }
 
-/* NAVIGATION */
+/* ===========================
+   NAVIGATION
+   =========================== */
 .nav {
   display: flex;
   align-items: center;
@@ -112,10 +120,13 @@ body {
   box-shadow: 0 5px 18px rgba(0, 0, 0, 0.5);
 }
 
-/* HERO (HOME PAGE) */
+/* ===========================
+   HERO (HOME PAGE)
+   =========================== */
 .hero {
   text-align: center;
   margin-top: 60px;
+  padding: 0 10px;
 }
 
 .hero h1 {
@@ -126,7 +137,7 @@ body {
 }
 
 .hero p {
-  font-size: 17px;
+  font-size: clamp(14px, 4vw, 18px);
   font-weight: 300;
   line-height: 1.7;
 }
@@ -137,7 +148,9 @@ body {
   text-underline-offset: 4px;
 }
 
-/* DISCORD CARD POSITION */
+/* ===========================
+   DISCORD CARD (HOME)
+   =========================== */
 .bottom {
   display: flex;
   justify-content: center;
@@ -158,13 +171,15 @@ body {
   border-radius: 14px;
 }
 
-/* Hover effect on lanyard card */
 .discord-card:hover {
   transform: translateY(-8px) scale(1.01);
   box-shadow: 0 26px 70px rgba(0, 0, 0, 0.95);
 }
 
-/* CENTERED CARD PAGES (CONTACT & PROJECTS) */
+/* ===========================
+   CENTERED CARD PAGES
+   (CONTACT & PROJECTS)
+   =========================== */
 .center-content {
   display: flex;
   justify-content: center;
@@ -193,7 +208,9 @@ body {
   opacity: 0.85;
 }
 
-/* CONTACT CARD STYLING */
+/* ===========================
+   CONTACT CARD DETAILS
+   =========================== */
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -260,7 +277,9 @@ body {
   margin: 0 6px 6px 0;
 }
 
-/* PROJECTS CARD STYLING */
+/* ===========================
+   PROJECTS CARD
+   =========================== */
 .projects-card .coming-soon {
   margin-bottom: 20px;
 }
@@ -296,26 +315,91 @@ body {
   margin-bottom: 4px;
 }
 
-/* RESPONSIVE */
+/* ===========================
+   RESPONSIVE (TABLET / MOBILE)
+   =========================== */
 @media (max-width: 768px) {
   .page {
     padding: 18px 18px 26px;
+    height: auto;
+    min-height: 100vh;
   }
 
+  /* Make nav stack nicely */
   .nav {
-    gap: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
   }
 
   .links a {
-    margin-right: 12px;
+    margin-right: 0;
+    font-size: 14px;
+  }
+
+  .github-btn {
+    margin-top: 2px;
+  }
+
+  /* Hero spacing a bit tighter */
+  .hero {
+    margin-top: 40px;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  /* Discord card closer to center */
+  .bottom {
+    margin-bottom: 40px;
+  }
+
+  .discord-card {
+    width: 95%;
+    padding: 14px;
+  }
+
+  /* Cards fill width nicely */
+  .card {
+    width: 96%;
+    padding: 22px 20px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-teasers {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Even smaller phones (e.g. iPhone SE) */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .hero p {
     font-size: 13px;
   }
 
-  .bottom {
-    margin-bottom: 60px;
+  .links a {
+    font-size: 13px;
   }
 
-  .card {
-    padding: 22px 20px;
+  .discord-card {
+    border-radius: 16px;
   }
 }
