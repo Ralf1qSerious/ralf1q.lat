@@ -198,7 +198,7 @@ body.fade-out {
 
 /* ===========================
    CENTERED CARD PAGES
-   (CONTACT & PROJECTS)
+   (CONTACT, PROJECTS, CHANGELOG)
    =========================== */
 .center-content {
   display: flex;
@@ -336,6 +336,103 @@ body.fade-out {
 }
 
 /* ===========================
+   CHANGELOG CARD
+   =========================== */
+.changelog-card {
+  /* uses base .card styles */
+}
+
+.changelog-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.changelog-header-row .subtitle {
+  margin-bottom: 0;
+}
+
+.changelog-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.changelog-pill {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.changelog-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.changelog-item {
+  background: rgba(18, 18, 18, 0.98);
+  border-radius: 16px;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.changelog-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.changelog-date {
+  font-family: "Poppins", monospace;
+}
+
+.changelog-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.changelog-tag {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.changelog-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.changelog-body {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.changelog-links {
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+.changelog-links a {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  margin-right: 8px;
+  opacity: 0.9;
+}
+
+/* ===========================
    RESPONSIVE (TABLET / MOBILE)
    =========================== */
 @media (max-width: 768px) {
@@ -393,6 +490,11 @@ body.fade-out {
   .contact-grid,
   .project-teasers {
     grid-template-columns: 1fr;
+  }
+
+  .changelog-header-row {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
