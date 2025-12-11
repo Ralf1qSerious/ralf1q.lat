@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Changelog - ralf1q</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="background"></div>
+  <div class="overlay"></div>
+
+  <div class="page">
+    <header class="nav">
+      <div class="avatar">
+        <img src="https://avatars.githubusercontent.com/u/1?v=4" alt="Avatar" />
+      </div>
+      <nav class="links">
+        <a href="/">Home</a>
+        <a href="/contact/">Contact</a>
+        <a href="/projects/">Projects</a>
+        <a href="/changelog/" class="active-link">Changelog</a>
+        <a href="https://github.com/Ralf1qSerious" target="_blank" class="github-btn">GitHub</a>
+      </nav>
+    </header>
+
+    <main class="center-content">
+      <section class="card changelog-card">
+        <div class="changelog-header-row">
+          <div>
+            <h1>Changelog</h1>
+            <p class="subtitle">Updates to my website, Discord, and projects. Latest changes are at the top.</p>
+          </div>
+          <div class="changelog-badges">
+            <span class="changelog-pill">Website</span>
+            <span class="changelog-pill">Discord</span>
+            <span class="changelog-pill">GitHub</span>
+          </div>
+        </div>
+
+        <ul class="changelog-list">
+
+          <!-- LATEST ENTRY GOES ON TOP -->
+          <li class="changelog-item">
+            <div class="changelog-meta">
+              <span class="changelog-date">2025-12-11</span>
+              <div class="changelog-tags">
+                <span class="changelog-tag">Website</span>
+                <span class="changelog-tag">Changelog</span>
+              </div>
+            </div>
+            <div class="changelog-title">Added Changelog Page</div>
+            <div class="changelog-body">
+              Created this changelog page at <strong>/changelog/</strong> with a clean UI, tags, and sections
+              for future updates across the website, Discord, and GitHub projects.
+            </div>
+          </li>
+
+          <li class="changelog-item">
+            <div class="changelog-meta">
+              <span class="changelog-date">2025-12-10</span>
+              <div class="changelog-tags">
+                <span class="changelog-tag">Website</span>
+                <span class="changelog-tag">Transitions</span>
+              </div>
+            </div>
+            <div class="changelog-title">Added Page Fade Transitions</div>
+            <div class="changelog-body">
+              Implemented smooth fade-in on load and fade-out transitions between pages for a more polished experience.
+            </div>
+          </li>
+
+          <li class="changelog-item">
+            <div class="changelog-meta">
+              <span class="changelog-date">2025-12-09</span>
+              <div class="changelog-tags">
+                <span class="changelog-tag">Discord</span>
+                <span class="changelog-tag">Presence</span>
+              </div>
+            </div>
+            <div class="changelog-title">Discord Presence Integration</div>
+            <div class="changelog-body">
+              Integrated the live Discord presence card using Lanyard on the home page to show current activity.
+            </div>
+            <div class="changelog-links">
+              <a href="https://discord.gg/ntQRWaBQz9" target="_blank">Join the Discord server</a>
+            </div>
+          </li>
+
+          <li class="changelog-item">
+            <div class="changelog-meta">
+              <span class="changelog-date">2025-12-08</span>
+              <div class="changelog-tags">
+                <span class="changelog-tag">Website</span>
+                <span class="changelog-tag">Launch</span>
+                <span class="changelog-tag">GitHub</span>
+              </div>
+            </div>
+            <div class="changelog-title">Initial Launch of ralf1q.lat</div>
+            <div class="changelog-body">
+              Deployed the first version of the website with the home page, contact page, and projects page using GitHub
+              Pages and a custom domain.
+            </div>
+            <div class="changelog-links">
+              <a href="https://ralf1q.lat" target="_blank">Visit the website</a>
+              <a href="https://github.com/Ralf1qSerious" target="_blank">View my GitHub</a>
+            </div>
+          </li>
+
+        </ul>
+
+        <p class="hint" style="margin-top: 14px;">
+          📝 To add a new entry, duplicate the top <code>&lt;li class="changelog-item"&gt;...</code> block and place your newest changes at the top of the list.
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const TRANSITION_MS = 400;
+
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const links = document.querySelectorAll("a[href]");
+
+      links.forEach((link) => {
+        const href = link.getAttribute("href");
+        const target = link.getAttribute("target");
+
+        if (
+          !href ||
+          href.startsWith("#") ||
+          target === "_blank" ||
+          (href.startsWith("http") && !href.startsWith(window.location.origin))
+        ) {
+          return;
+        }
+
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          document.body.classList.add("fade-out");
+
+          setTimeout(() => {
+            window.location.href = href;
+          }, TRANSITION_MS);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
